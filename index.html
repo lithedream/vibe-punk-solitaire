@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vibe Punk Solitaire</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="game">
+      <header>
+        <h1>Vibe Punk Solitaire</h1>
+        <p class="tagline">Solo ops through neon nightmares. Survive, hack, evolve.</p>
+      </header>
+      <section class="status-panel">
+        <div class="player-stats">
+          <h2>Runner Status</h2>
+          <div class="stat"><span>HP:</span><span id="hp">0</span></div>
+          <div class="stat"><span>Shield:</span><span id="shield">0</span></div>
+          <div class="stat"><span>Energy:</span><span id="energy">0</span></div>
+          <div class="stat small"><span>Deck:</span><span id="deck-count">0</span></div>
+          <div class="stat small"><span>Discard:</span><span id="discard-count">0</span></div>
+          <div class="stat small"><span>Mods:</span><span id="mods"></span></div>
+        </div>
+        <div class="challenge-display">
+          <h2>Current Encounter</h2>
+          <div id="challenge-card"></div>
+        </div>
+      </section>
+      <section class="board">
+        <div class="controls">
+          <button id="draw-button">Jack In</button>
+          <button id="end-turn">End Turn</button>
+          <button id="restart" class="ghost">Restart Run</button>
+        </div>
+        <div class="hand" id="hand"></div>
+      </section>
+      <section class="log-section">
+        <h2>Combat Log</h2>
+        <div id="log"></div>
+      </section>
+    </div>
+    <div id="reward-overlay" class="overlay hidden">
+      <div class="overlay-content">
+        <h2>Choose an Augmentation</h2>
+        <p id="reward-description"></p>
+        <div id="reward-options" class="reward-options"></div>
+        <button id="continue-button">Continue Run</button>
+      </div>
+    </div>
+    <div id="gameover-overlay" class="overlay hidden">
+      <div class="overlay-content">
+        <h2>Signal Lost</h2>
+        <p class="gameover-text" id="gameover-text"></p>
+        <button id="play-again">Boot Up Again</button>
+      </div>
+    </div>
+    <script src="game.js"></script>
+  </body>
+</html>
