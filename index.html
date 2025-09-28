@@ -2,59 +2,69 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
     <title>Vibe Punk Solitaire</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="game">
-      <header>
+    <main class="game-shell">
+      <header class="top-bar">
         <h1>Vibe Punk Solitaire</h1>
-        <p class="tagline">Solo ops through neon nightmares. Survive, hack, evolve.</p>
+        <p class="tagline">Neon-slick choices in a city that bites back.</p>
       </header>
-      <section class="status-panel">
-        <div class="player-stats">
-          <h2>Runner Status</h2>
-          <div class="stat"><span>HP:</span><span id="hp">0</span></div>
-          <div class="stat"><span>Shield:</span><span id="shield">0</span></div>
-          <div class="stat"><span>Energy:</span><span id="energy">0</span></div>
-          <div class="stat small"><span>Deck:</span><span id="deck-count">0</span></div>
-          <div class="stat small"><span>Discard:</span><span id="discard-count">0</span></div>
-          <div class="stat small"><span>Mods:</span><span id="mods"></span></div>
-        </div>
-        <div class="challenge-display">
-          <h2>Current Encounter</h2>
-          <div id="challenge-card"></div>
-        </div>
+
+      <section class="hud" aria-label="Runner stats">
+        <article class="stat-block">
+          <span class="stat-label">Vitals</span>
+          <span class="stat-value" id="stat-health">0</span>
+        </article>
+        <article class="stat-block">
+          <span class="stat-label">Edge</span>
+          <span class="stat-value" id="stat-edge">0</span>
+        </article>
+        <article class="stat-block">
+          <span class="stat-label">Cred</span>
+          <span class="stat-value" id="stat-cred">0</span>
+        </article>
+        <article class="stat-block">
+          <span class="stat-label">Heat</span>
+          <span class="stat-value" id="stat-heat">0</span>
+        </article>
       </section>
-      <section class="board">
-        <div class="controls">
-          <button id="draw-button">Jack In</button>
-          <button id="end-turn">End Turn</button>
-          <button id="restart" class="ghost">Restart Run</button>
+
+      <section class="story-panel" aria-live="polite">
+        <div class="cycle-label" id="cycle-label">Cycle 1</div>
+        <h2 class="story-title" id="event-title"></h2>
+        <p class="story-description" id="event-description"></p>
+      </section>
+
+      <section class="options-grid" aria-label="Available actions">
+        <button class="option-button" data-index="0"></button>
+        <button class="option-button" data-index="1"></button>
+        <button class="option-button" data-index="2"></button>
+        <button class="option-button" data-index="3"></button>
+      </section>
+
+      <section class="feed" aria-live="polite">
+        <div class="feed-header">
+          <h2>Signal Feed</h2>
+          <button id="restart-button" class="ghost-button">Restart Run</button>
         </div>
-        <div class="hand" id="hand"></div>
+        <div id="log" class="log" role="log"></div>
       </section>
-      <section class="log-section">
-        <h2>Combat Log</h2>
-        <div id="log"></div>
-      </section>
-    </div>
-    <div id="reward-overlay" class="overlay hidden">
-      <div class="overlay-content">
-        <h2>Choose an Augmentation</h2>
-        <p id="reward-description"></p>
-        <div id="reward-options" class="reward-options"></div>
-        <button id="continue-button">Continue Run</button>
+    </main>
+
+    <div id="overlay" class="overlay hidden" role="alertdialog" aria-modal="true">
+      <div class="overlay-card">
+        <h2 id="overlay-title"></h2>
+        <p id="overlay-text"></p>
+        <button id="overlay-restart">Run It Again</button>
       </div>
     </div>
-    <div id="gameover-overlay" class="overlay hidden">
-      <div class="overlay-content">
-        <h2>Signal Lost</h2>
-        <p class="gameover-text" id="gameover-text"></p>
-        <button id="play-again">Boot Up Again</button>
-      </div>
-    </div>
+
     <script src="game.js"></script>
   </body>
 </html>
