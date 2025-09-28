@@ -155,6 +155,10 @@ h1 {
   cursor: not-allowed;
 }
 
+.option-button.option-button--hidden {
+  display: none;
+}
+
 .option-button:hover,
 .option-button:focus-visible,
 .ghost-button:hover,
