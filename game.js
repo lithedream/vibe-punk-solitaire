@@ -279,8 +279,17 @@ function presentEvent() {
 
   optionButtons.forEach((button, index) => {
     const choice = event.options[index];
-    button.disabled = false;
-    button.textContent = choice ? choice.label : "";
+    const hasChoice = Boolean(choice);
+
+    button.disabled = !hasChoice;
+    button.textContent = hasChoice ? choice.label : "";
+    button.classList.toggle("option-button--hidden", !hasChoice);
+
+    if (hasChoice) {
+      button.removeAttribute("aria-hidden");
+    } else {
+      button.setAttribute("aria-hidden", "true");
+    }
   });
 
   if (event.signal) {
